@@ -1,0 +1,54 @@
+{
+  "name": "dka",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "author": "dks",
+  "description": "testing purpose",
+  "main": "electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "electron-dev": "concurrently \"vite\" \"wait-on http://localhost:5173 && electron .\"",
+    "electron:build": "electron-builder --publish never",
+    "build:all": "npm run build && npm run electron:build"
+  },
+  "dependencies": {
+    "@quasar/extras": "^1.16.17",
+    "quasar": "^2.18.1",
+    "vite-plugin-static-copy": "^2.3.1",
+    "vue": "^3.5.13",
+    "vue-router": "^4.5.0"
+  },
+  "devDependencies": {
+    "@quasar/vite-plugin": "^1.9.0",
+    "@vitejs/plugin-vue": "^5.2.1",
+    "concurrently": "^9.1.2",
+    "electron": "^35.2.0",
+    "electron-builder": "^26.0.12",
+    "sass-embedded": "^1.80.2",
+    "vite": "^6.2.0",
+    "wait-on": "^8.0.3"
+  },
+  "build": {
+    "appId": "com.mytest.myapp",
+    "productName": "myApp",
+    "copyright": "Copyright © 2025 dks ltd",
+    "files": [
+      "dist",
+      "electron"
+    ],
+    "directories": {
+      "buildResources": "assets"
+    },
+    "win": {
+      "target": "nsis",
+      "executableName": "MyApp",
+      "icon": "dist/assets/icon.ico"
+    },
+    "extraMetadata": {
+      "version": "1.0.0"
+    }
+  }
+}
